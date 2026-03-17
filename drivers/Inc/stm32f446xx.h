@@ -121,14 +121,12 @@ typedef struct
 	 __vo uint32_t DCKCFGR2;
 
 
-
-
 }RCC_RegDef_t;
 
-#define RCC 				((RCC_RegDef_t*)_BASE)
+#define RCC 				((RCC_RegDef_t*)RCC_BASE)
 
-#define GPIOA_PCLK_EN()		(RCC->AHB1ENR| = ( 1<< 0))
-#define GPIOB_PCLK_EN()		(RCC->AHB1ENR| = (1 << 1))
+#define GPIOA_PCLK_EN()		(RCC->AHB1ENR |= ( 1<< 0))
+#define GPIOB_PCLK_EN()		(RCC->AHB1ENR |= (1 << 1))
 
 
 #define I2C1_PCLK_EN()      (RCC->APB1ENR |= (1 << 21))

@@ -4,7 +4,19 @@
 
 void GPIO_PeriClkCtrl(GPIO_RegDef_t *pGPIOx, uint8_t ENorDI);
 
-void GPIO_Init(GPIO_Handle_t *pGPIOHandle);
+void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
+	uint32_t temp = 0;
+
+	if (pGPIOHandle->GPIO_PinConfig->GPIO_PinMode <= GPIO_MODE_ANALOG)
+	{
+		temp = (pGPIOHandle->GPIO_PinConfig->GPIO_PinMode << (2 * pGPIOHandle->GPIO_PinConfig->GPIO_PinMode));
+		pGPIOHandle->pGPIOx->MODER = temp;
+
+	}else
+	{
+
+	}
+}
 void GPIO_DeInit(GPIO_RegDef_t *pGPIOx);
 
 uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
