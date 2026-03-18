@@ -2,7 +2,72 @@
 
 #include "stm32f446_gpio_driver.h"
 
-void GPIO_PeriClkCtrl(GPIO_RegDef_t *pGPIOx, uint8_t ENorDI);
+void GPIO_PeriClkCtrl(GPIO_RegDef_t *pGPIOx, uint8_t ENorDI)
+{
+	if (ENorDI == ENABLE)
+	{
+		if (pGPIOx == GPIOA )
+		{
+			GPIOA_PCLK_EN();
+		}else if (pGPIOx == GPIOB)
+		{
+			GPIOB_PCLK_EN();
+		}else if (pGPIOx == GPIOC)
+		{
+			GPIOC_PCLK_EN();
+		}else if (pGPIOx == GPIOD)
+		{
+			GPIOD_PCLK_EN();
+		}else if (pGPIOx == GPIOE)
+		{
+			GPIOE_PCLK_EN();
+		}else if (pGPIOx == GPIOF)
+		{
+			GPIOF_PCLK_EN();
+		}else if (pGPIOx == GPIOG)
+		{
+			GPIOG_PCLK_EN();
+		}else if (pGPIOx == GPIOH)
+		{
+			GPIOH_PCLK_EN();
+		}else if (pGPIOx == GPIOI)
+		{
+			GPIOI_PCLK_EN();
+		}
+
+	}
+	else
+	{
+		if (pGPIOx == GPIOA )
+		{
+			GPIOA_PCLK_DI();
+		}else if (pGPIOx == GPIOB)
+		{
+			GPIOB_PCLK_DI();
+		}else if (pGPIOx == GPIOC)
+		{
+			GPIOC_PCLK_DI();
+		}else if (pGPIOx == GPIOD)
+		{
+			GPIOD_PCLK_DI();
+		}else if (pGPIOx == GPIOE)
+		{
+			GPIOE_PCLK_DI();
+		}else if (pGPIOx == GPIOF)
+		{
+			GPIOF_PCLK_DI();
+		}else if (pGPIOx == GPIOG)
+		{
+			GPIOG_PCLK_DI();
+		}else if (pGPIOx == GPIOH)
+		{
+			GPIOH_PCLK_DI();
+		}else if (pGPIOx == GPIOI)
+		{
+			GPIOI_PCLK_DI();
+		}
+	}
+}
 
 void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 	uint32_t temp = 0;
@@ -47,7 +112,42 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 	}
 
 }
-void GPIO_DeInit(GPIO_RegDef_t *pGPIOx);
+void GPIO_DeInit(GPIO_RegDef_t *pGPIOx)
+{
+	if (ENorDI == ENABLE)
+		{
+			if (pGPIOx == GPIOA )
+			{
+				GPIOA_REG_RESET();
+			}else if (pGPIOx == GPIOB)
+			{
+				GPIOB_REG_RESET();
+			}else if (pGPIOx == GPIOC)
+			{
+				GPIOC_REG_RESET();
+			}else if (pGPIOx == GPIOD)
+			{
+				GPIOD_REG_RESET();
+			}else if (pGPIOx == GPIOE)
+			{
+				GPIOE_REG_RESET();
+			}else if (pGPIOx == GPIOF)
+			{
+				GPIOF_REG_RESET();
+			}else if (pGPIOx == GPIOG)
+			{
+				GPIOG_REG_RESET();
+			}else if (pGPIOx == GPIOH)
+			{
+				GPIOH_REG_RESET();
+			}else if (pGPIOx == GPIOI)
+			{
+				GPIOI_REG_RESET();
+			}
+
+		}
+
+}
 
 uint8_t GPIO_ReadFromInputPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
 uint16_t GPIO_ReadFromInputPort(GPIO_RegDef_t *pGPIOx);
