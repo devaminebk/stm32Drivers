@@ -125,7 +125,7 @@ typedef struct
 
 #define RCC 				((RCC_RegDef_t*)RCC_BASE)
 
-#define GPIOA_PCLK_EN()		(RCC->AHB1ENR |= ( 1<< 0))
+#define GPIOA_PCLK_EN()		(RCC->AHB1ENR |= (1 << 0))
 #define GPIOB_PCLK_EN()		(RCC->AHB1ENR |= (1 << 1))
 
 
