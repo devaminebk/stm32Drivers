@@ -75,7 +75,7 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 	if (pGPIOHandle->GPIO_PinConfig->GPIO_PinMode <= GPIO_MODE_ANALOG)
 	{
 		temp = (pGPIOHandle->GPIO_PinConfig->GPIO_PinMode << (2 * pGPIOHandle->GPIO_PinConfig->GPIO_PinNumber));
-		pGPIOHandle->pGPIOx->MODER &= ~(3 << pGPIOHandle->GPIO_PinConfig->GPIO_PinNumber);
+		pGPIOHandle->pGPIOx->MODER &= ~(3 << (2 * pGPIOHandle->GPIO_PinConfig->GPIO_PinNumber));
 		pGPIOHandle->pGPIOx->MODER |= temp;
 
 	}else
@@ -86,13 +86,13 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle){
 
 	//SPEED
 	temp = (pGPIOHandle->GPIO_PinConfig->GPIO_PinSpeed << (2 * pGPIOHandle->GPIO_PinConfig->GPIO_PinNumber));
-	pGPIOHandle->pGPIOx->OSPEEDER &= ~(3 << pGPIOHandle->GPIO_PinConfig->GPIO_PinNumber);
+	pGPIOHandle->pGPIOx->OSPEEDER &= ~(3 << (2 * pGPIOHandle->GPIO_PinConfig->GPIO_PinNumber));
 	pGPIOHandle->pGPIOx->OSPEEDER |= temp;
 	temp = 0;
 
 	//PUPD control
 	temp = (pGPIOHandle->GPIO_PinConfig->GPIO_PinPuPdControl << (2 * pGPIOHandle->GPIO_PinConfig->GPIO_PinNumber));
-	pGPIOHandle->pGPIOx->PUPDR &= ~(3 << pGPIOHandle->GPIO_PinConfig->GPIO_PinNumber);
+	pGPIOHandle->pGPIOx->PUPDR &= ~(3 << (2 * pGPIOHandle->GPIO_PinConfig->GPIO_PinNumber));
 	pGPIOHandle->pGPIOx->PUPDR |= temp;
 	temp = 0;
 
